@@ -4,18 +4,187 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dev-Board</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+        </style>
+
+<script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+
+<link href="https://cdn.jsdelivr.net/npm/daisyui@5.0.0-beta.9/daisyui.css" rel="stylesheet" type="text/css" />
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
 </head>
-<body>
+<body class="w-10/12 mx-auto mt-5 p-4 mb-3 bg-gray-50">
     <header>
-        <nav>
+        <nav class="flex justify-between  rounded-md shadow-sm p-3">
+            <div class="flex items-center gap-1">
+                <img src="./assets/logo.png" alt="">
+                <p class="text-2xl">Dev<span class="font-bold">Board</span></p>
+            </div>
+            <div class="flex justify-around gap-10 items-center ">
+                <div class="flex items-center gap-2">
+                    <img src="./assets/checkbox.png" alt="">
+                    <p class="font-bold text-2xl">23</p>
+                   
+                </div>
+                <img class="h-3/5"  src="./assets/theme-btn.png " alt="">
+                
+            </div>
 
         </nav>
     </header>
     <main>
+       <div class="grid grid-cols-16 gap-6 mt-6">
+
+         <!-- upper cards -->
+         <div class="mb-5 flex  items-center gap-2 py-2 px-3 bg-gray-100 rounded-lg col-span-3">
+            <img src="./assets/checkbox.png" alt="">
+            <div><p>Task Assigned</p>
+                <h3 class="font-bold text-xl">05</h3>
+            </div>
+         </div>
+         <!-- discover Board card -->
+          <div class="mb-5 bg-[#3752FD]  rounded-md flex p-2  items-center justify-start col-span-6 ">
+            <img src="./assets/board.png" alt="">
+
+            <h4 class="text-white">Discover Something <br> New Today!</h4>
+          </div>
+          <!-- date card -->
+           <div class="mb-5  flex items-center gap-2 shadow-md p-4 bg-gray-100 rounded-md justify-center col-span-3">
+            <img src="./assets/calender.png" alt="">
+            <p id="dateDisplay"></p>
+            <script>
+                const today= new Date();
+                const formattedDate=today.toLocaleDateString('en-US',{
+                    weekday: 'short',
+                    month: "short",
+                    day: 'numeric',
+                    year: 'numeric'
+
+                }
+            )
+            const customDate=formattedDate.replace(',',',\n');
+            console.log(customDate);
+            document.getElementById('dateDisplay').innerText=customDate;
+            </script>
+           </div>
+
+
+
+
+           
+            <!-- Activity Log section -->
+
+            <div class=" space-y-2 row-span-3 bg-white p-4 col-span-4">
+                <div class="flex gap-3">
+                    <img src="./assets/activity.png" alt="">
+                    <p>Activity Log</p>
+                </div>
+
+                <button class="bg-[#3752FD] rounded-md text-white px-3 py-1">Clear History</button>
+
+                <p class="text-base text-gray-500 rounded-md shadow-sm p-2">You have Complete The Task Add Dark Mode at 12:48:15 PM</p>
+                <p class="text-base text-gray-500 rounded-md shadow-sm p-2">You have Complete The Task Add Dark Mode at 12:48:15 PM</p>
+
+
+
+            </div>
+
+
+
+
+
+
+           <!-- same cards -->
+            <div class=" p-3 space-y-2 bg-gray-100 rounded-xl col-span-4">
+                <p class="text-gray-500 text-base rounded-md shadow-white p-1 w-28 text-center  bg-white">ShopEase</p>
+                <h4 class="text-lg font-medium">Fix Mobile Button Issue </h4>
+                <p class="text-sm text-gray-400 rounded-md px-3 py-1 line-clamp-2  bg-white">Debug using Chrome DevTools, check for overlapping elements, and ensure onClick works properly
+                    and ensure onClick works properly</p>
+                    <div class="flex gap-2 items-center justify-between">
+                        <p class="text-gray-500 text-xs">Deadline <span class="text-sm font-medium text-black"><br>21 March 2025</span></p>
+                        <button class="bg-[#3752FD] rounded-sm text-white px-2 py-1 ">completed</button>
+                    </div>
+            </div>
+
+
+            <div class=" p-3 space-y-2 bg-gray-100 rounded-xl col-span-4">
+                <p class="text-gray-500 text-base rounded-md shadow-white p-1 w-28 text-center  bg-white">CloudSync</p>
+                <h4 class="text-lg font-medium">Add Dark Mode </h4>
+                <p class="text-sm text-gray-400 rounded-md px-3 py-1 line-clamp-2  bg-white">Store the user's preference in localStorage, update CSS variables dynamically, and apply a smooth transition effect.</p>
+                    <div class="flex gap-2 items-center justify-between">
+                        <p class="text-gray-500 text-xs">Deadline <span class="text-sm font-medium text-black"><br>21 March 2025</span></p>
+                        <button class="bg-[#3752FD] rounded-sm text-white px-2 py-1 ">completed</button>
+                    </div>
+            </div>
+
+
+            <div class=" p-3 space-y-2 bg-gray-100 rounded-xl col-span-4">
+                <p class="text-gray-500 text-base rounded-md shadow-white p-1 w-28 text-center  bg-white">SwiftPay</p>
+                <h4 class="text-lg font-medium">Optimize  Home page  </h4>
+                <p class="text-sm text-gray-400 rounded-md px-3 py-1 line-clamp-2  bg-white">Debug using Chrome DevTools, check for overlapping elements, and ensure onClick works properly
+                    and ensure onClick works properly</p>
+                    <div class="flex gap-2 items-center justify-between">
+                        <p class="text-gray-500 text-xs">Deadline <span class="text-sm font-medium text-black"><br>21 March 2025</span></p>
+                        <button class="bg-[#3752FD] rounded-sm text-white px-2 py-1 ">completed</button>
+                    </div>
+            </div>
+
+
+            <div class=" p-3 space-y-2 bg-gray-100 rounded-xl col-span-4">
+                <p class="text-gray-500 text-base rounded-md shadow-white p-1 w-28 text-center  bg-white">Meta</p>
+                <h4 class="text-lg font-medium">Add new emoji 🤲 </h4>
+                <p class="text-sm text-gray-400 rounded-md px-3 py-1 line-clamp-2  bg-white">Debug using Chrome DevTools, check for overlapping elements, and ensure onClick works properly
+                    and ensure onClick works properly</p>
+                    <div class="flex gap-2 items-center justify-between">
+                        <p class="text-gray-500 text-xs">Deadline <span class="text-sm font-medium text-black"><br>21 March 2025</span></p>
+                        <button class="bg-[#3752FD] rounded-sm text-white px-2 py-1 ">completed</button>
+                    </div>
+            </div>
+
+
+            <div class=" p-3 space-y-2 bg-gray-100 rounded-xl col-span-4">
+                <p class="text-gray-500 text-base rounded-md shadow-white p-1 w-28 text-center  bg-white">Google LLC</p>
+                <h4 class="text-lg font-medium">Integrate OpenAI API  </h4>
+                <p class="text-sm text-gray-400 rounded-md px-3 py-1 line-clamp-2  bg-white">Debug using Chrome DevTools, check for overlapping elements, and ensure onClick works properly
+                    and ensure onClick works properly</p>
+                    <div class="flex gap-2 items-center justify-between">
+                        <p class="text-gray-500 text-xs">Deadline <span class="text-sm font-medium text-black"><br>21 March 2025</span></p>
+                        <button class="bg-[#3752FD] rounded-sm text-white px-2 py-1 ">completed</button>
+                    </div>
+            </div>
+
+            <div class=" p-3 space-y-2 bg-gray-100 rounded-xl col-span-4">
+                <p class="text-gray-500 text-base rounded-md shadow-white p-1 w-28 text-center  bg-white">Glassdoar</p>
+                <h4 class="text-lg font-medium">Improve Job searching  </h4>
+                <p class="text-sm text-gray-400 rounded-md px-3 py-1 line-clamp-2  bg-white">Debug using Chrome DevTools, check for overlapping elements, and ensure onClick works properly
+                    and ensure onClick works properly</p>
+                    <div class="flex gap-2 items-center justify-between">
+                        <p class="text-gray-500 text-xs">Deadline <span class="text-sm font-medium text-black"><br>21 March 2025</span></p>
+                        <button class="bg-[#3752FD] rounded-sm text-white px-2 py-1 ">completed</button>
+                    </div>
+            </div>
+
+
+
+
+
+
+           
+
+
+
+
+       </div>
+
+
+
+
+
 
     </main>
     <footer>
-        
+
     </footer>
     
 </body>
